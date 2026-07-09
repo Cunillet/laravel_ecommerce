@@ -1,0 +1,80 @@
+@use 'variables' as *;
+
+// =========================================
+// Base Reset & Typography
+// =========================================
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
+
+body {
+    font-family: $font-sans;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background-color: $brand;
+    color: $white;
+}
+
+// Screen reader only
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+// Typography helpers
+.font-sans { font-family: $font-sans; }
+.antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.underline { text-decoration: underline; }
+.no-underline { text-decoration: none; }
+.uppercase { text-transform: uppercase; }
+.text-start { text-align: start; }
+.text-center { text-align: center; }
+.whitespace-nowrap { white-space: nowrap; }
+.overflow-hidden { overflow: hidden; }
+.overflow-y-auto { overflow-y: auto; }
+
+// Links
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+// Focus outline
+.focus-outline {
+    &:focus {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+    }
+}
+
+// Input base
+input, textarea, select, button {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: inherit;
+    color: inherit;
+}

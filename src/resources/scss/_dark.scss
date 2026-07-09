@@ -1,0 +1,26 @@
+@use 'variables' as *;
+
+// =========================================
+// Dark Mode
+// =========================================
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: $black;
+        color: rgba(255, 255, 255, 0.87);
+    }
+
+    .dark\:bg-black { background-color: $black; }
+    .dark\:bg-zinc-900 { background-color: $zinc-900; }
+    .dark\:text-white { color: $white; }
+    .dark\:text-white\/50 { color: rgba(255, 255, 255, 0.5); }
+    .dark\:text-white\/80 { color: rgba(255, 255, 255, 0.8); }
+    .dark\:ring-zinc-800 { box-shadow: 0 0 0 1px $zinc-800; }
+    .dark\:via-zinc-900 { --tw-gradient-via: $zinc-900; }
+    .dark\:to-zinc-900 { --tw-gradient-to: $zinc-900; }
+    .dark\:hidden { display: none; }
+    .dark\:block { display: block; }
+
+    .dark\:hover\:text-white\/70:hover { color: rgba(255, 255, 255, 0.7); }
+    .dark\:hover\:ring-zinc-700:hover { box-shadow: 0 0 0 1px $zinc-700; }
+    .dark\:focus-visible\:ring-white:focus-visible { box-shadow: 0 0 0 2px $white; }
+}
