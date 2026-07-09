@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -34,6 +35,11 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
+            'categories' => Category::active()
+                ->whereNull('parent_id')
+                ->with(['children' => fn ($q) => $q->active()])
+                ->orderBy('name')
+                ->get(),
         ];
     }
 }

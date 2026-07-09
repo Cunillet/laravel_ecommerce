@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,7 @@ Route::get('/', function () {
 });
 
 Route::get('/product/{slug}', ProductController::class)->name('product.show');
+Route::get('/category/{slug}', CategoryController::class)->name('category.show');
 Route::get('/cart', [\App\Http\Controllers\CartController::class, 'index'])->name('cart.index');
 
 Route::get('/dashboard', function () {

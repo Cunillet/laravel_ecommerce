@@ -5,7 +5,7 @@ export default function ColorSelector({ colors = [], selected, onChange }) {
         <div className="selector">
             <span className="selector-label">Color: <strong>{selected?.name || 'Seleccionar'}</strong></span>
             <div className="color-options">
-                {colors.map((color, i) => (
+                {colors.filter(Boolean).map((color, i) => (
                     <button
                         key={i}
                         type="button"
