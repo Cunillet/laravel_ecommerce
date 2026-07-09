@@ -24,6 +24,9 @@ class Product extends Model
         'description',
         'stock',
         'sku',
+        'colors',
+        'sizes',
+        'size_guide',
         'is_active',
     ];
 
@@ -35,6 +38,8 @@ class Product extends Model
         return [
             'is_active' => 'boolean',
             'stock' => 'integer',
+            'colors' => 'array',
+            'sizes' => 'array',
         ];
     }
 
@@ -78,6 +83,22 @@ class Product extends Model
         return $this->hasOne(Price::class)
             ->where('is_active', true)
             ->where('type', 'standard');
+    }
+
+    /**
+     * @return HasOne<Price, $this>
+     */
+    public function salePrice(): HasOne
+    {
+        return $this->hasOne(Price::class)
+            ->where('is_active', true)
+            ->where('type', 'sale')
+            ->where(function ($q) {
+                $q->whereNull('starts_at')->orWhere('starts_at', '<=', now());
+            })
+            ->where(function ($q) {
+                $q->whereNull('ends_at')->orWhere('ends_at', '>=', now());
+            });
     }
 
     /**
