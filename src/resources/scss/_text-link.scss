@@ -1,0 +1,21 @@
+@use 'variables' as *;
+
+// =========================================
+// Text link
+// =========================================
+
+.text-link {
+    font-size: 0.8125rem;
+    color: $gray-600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color $transition-fast $ease-in-out;
+
+    &:hover { color: $gray-900; }
+
+    @media (prefers-color-scheme: dark) {
+        color: $gray-400;
+
+        &:hover { color: $white; }
+    }
+}

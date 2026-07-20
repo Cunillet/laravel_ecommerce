@@ -1,0 +1,76 @@
+@use 'variables' as *;
+
+// =========================================
+// Buttons
+// =========================================
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    border-width: 1px;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: $radius-md;
+    transition: all $transition-fast $ease-in-out;
+    cursor: pointer;
+    line-height: 1.25rem;
+
+    &:focus {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+    }
+
+    &:disabled {
+        opacity: 0.25;
+        pointer-events: none;
+    }
+}
+
+.btn-primary {
+    @extend .btn;
+    background-color: $gray-800;
+    color: $white;
+    border-color: transparent;
+
+    &:hover { background-color: $gray-700; }
+    &:focus { background-color: $gray-700; box-shadow: 0 0 0 2px $indigo-500, 0 0 0 4px $white; }
+    &:active { background-color: $gray-900; }
+}
+
+.btn-secondary {
+    @extend .btn;
+    background-color: $white;
+    color: $gray-700;
+    border-color: $gray-300;
+
+    &:hover { background-color: $gray-50; }
+    &:focus { box-shadow: 0 0 0 2px $indigo-500; }
+}
+
+.btn-lg {
+    @extend .btn;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+}
+
+// Danger button — outlined style (white bg, red border)
+.btn-danger {
+    @extend .btn;
+    background-color: $white;
+    color: $red-600;
+    border-color: $red-500;
+
+    &:hover {
+        background-color: $gray-50;
+        border-color: $red-500;
+    }
+
+    &:focus {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+        box-shadow: 0 0 0 2px $red-500, 0 0 0 4px $white;
+    }
+}

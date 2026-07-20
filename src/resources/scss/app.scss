@@ -4,5 +4,29 @@
 @use 'variables';
 @use 'base';
 @use 'utilities';
-@use 'components';
+
+// Domain component files (alphabetical)
+@use 'buttons';
+@use 'forms';
+@use 'nav';
+@use 'card';
+@use 'dropdown';
+@use 'modal';
+@use 'layout';
+@use 'status';
+@use 'text-link';
+@use 'auth';
+@use 'welcome';
+@use 'store-layout';
+@use 'product';
+@use 'reviews';
+@use 'cart';
+@use 'user-dropdown';
+@use 'breadcrumb';
+@use 'shop';
+@use 'home';
+@use 'profile';
+@use 'addresses';
+@use 'orders';
+
 @use 'dark';

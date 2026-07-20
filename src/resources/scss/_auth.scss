@@ -1,0 +1,106 @@
+@use 'variables' as *;
+
+// =========================================
+// Auth pages (login / register)
+// =========================================
+
+.auth-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $black;
+    padding: 6rem 1rem 2rem;
+
+    @media (min-width: $bp-sm) {
+        padding: 6rem 1.5rem 2rem;
+    }
+}
+
+.auth-logo {
+    margin-bottom: 1.5rem;
+
+    img {
+        height: 2.5rem;
+        width: auto;
+    }
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 28rem;
+    background-color: $white;
+    border-radius: $radius-lg;
+    padding: 2rem;
+    box-shadow: $shadow-xl;
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $gray-900;
+        margin: 0 0 0.25rem;
+    }
+
+    p {
+        font-size: 0.9375rem;
+        color: $gray-600;
+        margin: 0 0 1.5rem;
+    }
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.login-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    gap: 1rem;
+}
+
+.forgot-link {
+    font-size: 0.8125rem;
+    color: $gray-600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color $transition-fast $ease-in-out;
+
+    &:hover { color: $gray-900; }
+}
+
+.verify-link {
+    font-size: 0.8125rem;
+    color: $indigo-600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    &:hover { color: $indigo-800; }
+}
+
+.register-link {
+    font-size: 0.8125rem;
+    color: $gray-600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    margin-top: 1rem;
+    display: inline-block;
+    transition: color $transition-fast $ease-in-out;
+
+    &:hover { color: $gray-900; }
+}
+
+.auth-form-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $gray-900;
+    margin: 0 0 1.5rem;
+}
+
+.auth-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

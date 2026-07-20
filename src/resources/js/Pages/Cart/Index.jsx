@@ -22,7 +22,7 @@ export default function CartIndex({ items, total, itemCount }) {
 
     return (
         <StoreLayout auth={auth}>
-            <div className="cart-page store-container">
+            <div className="cart-page">
                 <h1 className="cart-page-title">Tu carrito</h1>
 
                 {hasItems ? (

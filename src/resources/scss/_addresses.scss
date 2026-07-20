@@ -1,0 +1,89 @@
+@use 'variables' as *;
+
+// =========================================
+// Addresses
+// =========================================
+
+.addresses-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @media (min-width: $bp-sm) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $bp-lg) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.address-card {
+    position: relative;
+}
+
+.address-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: $radius-full;
+    background-color: $green-600;
+    color: $white;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #15803d;
+        color: $gray-100;
+    }
+}
+
+.address-card-body {
+    padding: 1.25rem 1.5rem;
+}
+
+.address-card-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $gray-900;
+    margin-bottom: 0.75rem;
+
+    @media (prefers-color-scheme: dark) {
+        color: $white;
+    }
+}
+
+.address-card-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $gray-800;
+
+    @media (prefers-color-scheme: dark) {
+        color: $gray-200;
+    }
+}
+
+.address-card-detail {
+    margin-top: 0.125rem;
+    font-size: 0.8125rem;
+    color: $gray-600;
+
+    @media (prefers-color-scheme: dark) {
+        color: $gray-400;
+    }
+}
+
+.address-card-actions {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0 1.5rem 1.25rem;
+
+    .btn-secondary,
+    .btn-danger {
+        flex: 1;
+        justify-content: center;
+    }
+}

@@ -258,3 +258,21 @@
 .rounded-\[10px\] { border-radius: 10px; }
 .drop-shadow-\[0px_4px_34px_rgba\(0\,0\,0\,0\.06\)\] { filter: drop-shadow(0px 4px 34px rgba(0, 0, 0, 0.06)); }
 .drop-shadow-\[0px_4px_34px_rgba\(0\,0\,0\,0\.25\)\] { filter: drop-shadow(0px 4px 34px rgba(0, 0, 0, 0.25)); }
+
+// ---- Extra utilities from old _components.scss ----
+.-mx-3 { margin-inline: -0.75rem; }
+.-me-0\.5 { margin-inline-end: -0.125rem; }
+.-me-2 { margin-inline-end: -0.5rem; }
+.-bottom-16 { bottom: -4rem; }
+.-left-16 { left: -4rem; }
+.-left-20 { left: -5rem; }
+.top-0 { top: 0; }
+.max-w-\[877px\] { max-width: 877px; }
+.bg-gradient-to-b { background-image: linear-gradient(to bottom, var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to)); }
+.from-transparent { --tw-gradient-from: transparent; }
+.via-white { --tw-gradient-via: $white; }
+.to-white { --tw-gradient-to: $white; }
+.stroke-\[\#FF2D20\] { stroke: $brand; }
+.stroke-2 { stroke-width: 2; }
+.stroke-current { stroke: currentColor; }
+.text-black\/50 { color: rgba(0, 0, 0, 0.5); }

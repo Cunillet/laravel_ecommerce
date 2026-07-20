@@ -1,0 +1,278 @@
+@use 'variables' as *;
+
+// =========================================
+// Welcome page
+// =========================================
+
+.welcome {
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: $bp-sm) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $bp-lg) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.welcome-heading {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $gray-700;
+    margin: 0 0 0.5rem;
+
+    @media (prefers-color-scheme: dark) {
+        color: $gray-300;
+    }
+}
+
+.welcome-card-row {
+    display: block;
+    padding: 1.25rem;
+    background-color: $white;
+    border: 1px solid $gray-200;
+    border-radius: $radius-lg;
+    text-decoration: none;
+    transition: all $transition-fast $ease-in-out;
+
+    &:hover {
+        border-color: $gray-400;
+        box-shadow: $shadow-md;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background-color: $zinc-900;
+        border-color: $zinc-800;
+
+        &:hover {
+            border-color: $zinc-700;
+        }
+    }
+}
+
+.eco-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: $gray-700;
+    text-decoration: none;
+    border-radius: $radius-md;
+    transition: all $transition-fast $ease-in-out;
+
+    &:hover {
+        background-color: $gray-100;
+        color: $gray-900;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: $gray-300;
+
+        &:hover {
+            background-color: $zinc-800;
+            color: $white;
+        }
+    }
+}
+
+.icon-sm {
+    display: inline-flex;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.welcome-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $gray-700;
+    text-decoration: none;
+    border-radius: $radius-md;
+    transition: all $transition-fast $ease-in-out;
+
+    &:hover {
+        background-color: $gray-50;
+        color: $gray-900;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: $gray-300;
+
+        &:hover {
+            background-color: $zinc-800;
+            color: $white;
+        }
+    }
+}
+
+// ---- Hero ----
+.welcome-hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, $gray-50 0%, $white 100%);
+
+    @media (prefers-color-scheme: dark) {
+        background: linear-gradient(180deg, $zinc-900 0%, $black 100%);
+    }
+}
+
+.welcome-hero-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+    position: relative;
+
+    @media (min-width: $bp-sm) {
+        padding: 6rem 1.5rem;
+    }
+
+    @media (min-width: $bp-lg) {
+        padding: 8rem 2rem;
+    }
+}
+
+.welcome-hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.welcome-hero-content {
+    position: relative;
+    max-width: 36rem;
+}
+
+.welcome-hero-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: $gray-900;
+    margin: 0 0 1rem;
+    line-height: 1.15;
+
+    @media (min-width: $bp-sm) {
+        font-size: 3rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: $white;
+    }
+}
+
+.welcome-hero-text {
+    font-size: 1.125rem;
+    color: $gray-600;
+    margin: 0 0 2rem;
+    line-height: 1.6;
+
+    @media (prefers-color-scheme: dark) {
+        color: $gray-400;
+    }
+}
+
+.welcome-hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+// ---- Cards section ----
+.welcome-cards {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+
+    @media (min-width: $bp-sm) {
+        padding: 3rem 1.5rem;
+    }
+
+    @media (min-width: $bp-lg) {
+        padding: 4rem 2rem;
+    }
+}
+
+.welcome-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: $bp-sm) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $bp-lg) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.welcome-card {
+    padding: 1.5rem;
+    background-color: $white;
+    border: 1px solid $gray-200;
+    border-radius: $radius-lg;
+    transition: all $transition-fast $ease-in-out;
+
+    &:hover {
+        border-color: $gray-300;
+        box-shadow: $shadow-md;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background-color: $zinc-900;
+        border-color: $zinc-800;
+
+        &:hover {
+            border-color: $zinc-700;
+        }
+    }
+}
+
+.welcome-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+    border-radius: $radius-lg;
+    background: linear-gradient(135deg, $gray-100, $white);
+
+    @media (prefers-color-scheme: dark) {
+        background: linear-gradient(135deg, $zinc-800, $zinc-900);
+    }
+}
+
+.welcome-card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $gray-900;
+    margin: 0 0 0.5rem;
+
+    @media (prefers-color-scheme: dark) {
+        color: $white;
+    }
+}
+
+.welcome-card-text {
+    font-size: 0.9375rem;
+    color: $gray-600;
+    margin: 0;
+    line-height: 1.6;
+
+    @media (prefers-color-scheme: dark) {
+        color: $gray-400;
+    }
+}

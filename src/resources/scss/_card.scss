@@ -1,0 +1,47 @@
+@use 'variables' as *;
+
+// =========================================
+// Card
+// =========================================
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    border: 1px solid $gray-200;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-sm;
+    overflow: hidden;
+    transition: box-shadow $transition-fast $ease-in-out;
+
+    &:hover {
+        box-shadow: $shadow-md;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background-color: $zinc-900;
+        border-color: $zinc-800;
+    }
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid $gray-200;
+
+    @media (prefers-color-scheme: dark) {
+        border-color: $zinc-800;
+    }
+}
+
+.card-body {
+    flex: 1;
+    padding: 1.25rem 1.5rem;
+    color: $gray-700;
+
+    @media (prefers-color-scheme: dark) {
+        color: $gray-300;
+    }
+}

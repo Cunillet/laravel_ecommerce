@@ -1,0 +1,110 @@
+@use 'variables' as *;
+
+// =========================================
+// Page layout
+// =========================================
+
+.page-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-content {
+    flex: 1;
+    padding: 1.5rem 1rem;
+
+    @media (min-width: $bp-sm) {
+        padding: 1.5rem 1.5rem;
+    }
+
+    @media (min-width: $bp-lg) {
+        padding: 1.5rem 2rem;
+    }
+}
+
+.content-card {
+    max-width: 48rem;
+    margin: 0 auto;
+    width: 100%;
+}
+
+// ---- Responsive mixin ----
+@mixin responsive($breakpoint) {
+    @if $breakpoint == 'sm' {
+        @media (min-width: $bp-sm) { @content; }
+    } @else if $breakpoint == 'md' {
+        @media (min-width: $bp-md) { @content; }
+    } @else if $breakpoint == 'lg' {
+        @media (min-width: $bp-lg) { @content; }
+    } @else if $breakpoint == 'xl' {
+        @media (min-width: $bp-xl) { @content; }
+    }
+}
+
+// ---- Responsive utilities ----
+@include responsive('sm') {
+    .sm\:flex { display: flex; }
+    .sm\:hidden { display: none; }
+    .sm\:block { display: block; }
+    .sm\:items-center { align-items: center; }
+    .sm\:justify-center { justify-content: center; }
+    .sm\:px-0 { padding-inline: 0; }
+    .sm\:px-6 { padding-inline: 1.5rem; }
+    .sm\:mx-auto { margin-inline: auto; }
+    .sm\:w-full { width: 100%; }
+    .sm\:rounded-lg { border-radius: $radius-lg; }
+    .sm\:max-w-sm { max-width: 24rem; }
+    .sm\:max-w-md { max-width: 28rem; }
+    .sm\:max-w-lg { max-width: 32rem; }
+    .sm\:max-w-xl { max-width: 36rem; }
+    .sm\:max-w-2xl { max-width: 42rem; }
+    .sm\:pt-0 { padding-top: 0; }
+    .sm\:pt-5 { padding-top: 1.25rem; }
+    .sm\:p-8 { padding: 2rem; }
+    .sm\:-my-px { margin-block: -1px; }
+    .sm\:ms-6 { margin-inline-start: 1.5rem; }
+    .sm\:ms-10 { margin-inline-start: 2.5rem; }
+    .sm\:size-6 { width: 1.5rem; height: 1.5rem; }
+    .sm\:size-16 { width: 4rem; height: 4rem; }
+    .sm\:translate-y-0 { transform: translateY(0); }
+    .sm\:scale-95 { transform: scale(0.95); }
+    .sm\:scale-100 { transform: scale(1); }
+}
+
+@include responsive('md') {
+    .md\:row-span-3 { grid-row: span 3 / span 3; }
+}
+
+@include responsive('lg') {
+    .lg\:flex { display: flex; }
+    .lg\:hidden { display: none; }
+    .lg\:block { display: block; }
+    .lg\:flex-col { flex-direction: column; }
+    .lg\:items-end { align-items: flex-end; }
+    .lg\:justify-center { justify-content: center; }
+    .lg\:gap-8 { gap: 2rem; }
+    .lg\:px-8 { padding-inline: 2rem; }
+    .lg\:py-8 { padding-block: 2rem; }
+    .lg\:p-10 { padding: 2.5rem; }
+    .lg\:pb-10 { padding-bottom: 2.5rem; }
+    .lg\:pt-0 { padding-top: 0; }
+    .lg\:col-start-2 { grid-column-start: 2; }
+    .lg\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .lg\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .lg\:max-w-7xl { max-width: 80rem; }
+    .lg\:h-16 { height: 4rem; }
+    .lg\:text-\[#FF2D20\] { color: $brand; }
+}
+
+// ---- Visibility overrides for dark mode ----
+.dark\:hidden {
+    @media (prefers-color-scheme: dark) {
+        display: none !important;
+    }
+}
+.dark\:block {
+    @media (prefers-color-scheme: dark) {
+        display: block !important;
+    }
+}

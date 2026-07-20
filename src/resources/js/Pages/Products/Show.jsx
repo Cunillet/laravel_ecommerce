@@ -12,7 +12,7 @@ export default function Show({ product, auth, breadcrumb }) {
             <div className="product-page">
                 <Breadcrumb items={breadcrumb || []} />
 
-                <div className="product-page-inner">
+                <div className="product-page-inner product-layout">
                     <ProductImageGallery
                         images={product.images}
                         primaryImage={product.primary_image}
