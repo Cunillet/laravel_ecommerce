@@ -1,5 +1,6 @@
 import { Link, usePage } from '@inertiajs/react';
 import HeaderCart from '@/Components/HeaderCart';
+import Footer from '@/Components/Footer';
 
 export default function StoreLayout({ children, auth = null }) {
     const { categories = [] } = usePage().props;
@@ -66,6 +67,8 @@ export default function StoreLayout({ children, auth = null }) {
             <main className="store-main">
                 {children}
             </main>
+
+            <Footer />
         </div>
     );
 }

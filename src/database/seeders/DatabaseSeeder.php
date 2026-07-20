@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(BannerSeeder::class);
+
         // 1 admin user (skip if already exists)
         if (!User::where('email', 'admin@example.com')->exists()) {
             User::factory()->admin()->create([
