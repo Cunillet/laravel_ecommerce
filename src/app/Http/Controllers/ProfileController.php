@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
@@ -13,6 +15,29 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
+    /**
+     * Display the profile dashboard hub.
+     */
+    public function index(Request $request): Response
+    {
+        $user = $request->user();
+
+        return Inertia::render('Profile/Index', [
+            'addressesCount' => $user->shippingAddresses()->count(),
+            'defaultAddress' => $user->shippingAddresses()
+                ->where('is_default', true)
+                ->first(),
+            'recentOrders' => $user->orders()
+                ->latest()
+                ->take(3)
+                ->get(),
+            'completedOrdersCount' => $user->orders()
+                ->where('status', 'delivered')
+                ->count(),
+            'totalOrdersCount' => $user->orders()->count(),
+        ]);
+    }
+
     /**
      * Display the user's profile form.
      */

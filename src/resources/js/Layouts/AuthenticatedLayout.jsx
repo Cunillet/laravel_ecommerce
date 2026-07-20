@@ -24,10 +24,22 @@ export default function AuthenticatedLayout({ header, children }) {
 
                         <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                             <NavLink
-                                href={route('dashboard')}
-                                active={route().current('dashboard')}
+                                href={route('profile.index')}
+                                active={route().current('profile.index')}
                             >
-                                Dashboard
+                                Mi Perfil
+                            </NavLink>
+                            <NavLink
+                                href={route('profile.addresses.index')}
+                                active={route().current('profile.addresses.*')}
+                            >
+                                Direcciones
+                            </NavLink>
+                            <NavLink
+                                href={route('profile.orders.index')}
+                                active={route().current('profile.orders.*')}
+                            >
+                                Pedidos
                             </NavLink>
                         </div>
                     </div>
@@ -63,7 +75,7 @@ export default function AuthenticatedLayout({ header, children }) {
                                     <Dropdown.Link
                                         href={route('profile.edit')}
                                     >
-                                        Profile
+                                        Mi perfil
                                     </Dropdown.Link>
                                     <Dropdown.Link
                                         href={route('logout')}
@@ -127,10 +139,22 @@ export default function AuthenticatedLayout({ header, children }) {
                 >
                     <div className="space-y-1 pb-3 pt-2">
                         <ResponsiveNavLink
-                            href={route('dashboard')}
-                            active={route().current('dashboard')}
+                            href={route('profile.index')}
+                            active={route().current('profile.index')}
                         >
-                            Dashboard
+                            Mi Perfil
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route('profile.addresses.index')}
+                            active={route().current('profile.addresses.*')}
+                        >
+                            Direcciones
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route('profile.orders.index')}
+                            active={route().current('profile.orders.*')}
+                        >
+                            Pedidos
                         </ResponsiveNavLink>
                     </div>
 
@@ -146,7 +170,7 @@ export default function AuthenticatedLayout({ header, children }) {
 
                         <div className="mt-3 space-y-1">
                             <ResponsiveNavLink href={route('profile.edit')}>
-                                Profile
+                                Mi perfil
                             </ResponsiveNavLink>
                             <ResponsiveNavLink
                                 method="post"

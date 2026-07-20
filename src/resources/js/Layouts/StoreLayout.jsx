@@ -2,7 +2,7 @@ import { Link, usePage } from '@inertiajs/react';
 import HeaderCart from '@/Components/HeaderCart';
 import Footer from '@/Components/Footer';
 
-export default function StoreLayout({ children, auth = null }) {
+export default function StoreLayout({ children, auth = null, hideAuthLinks = false }) {
     const { categories = [] } = usePage().props;
 
     return (
@@ -47,10 +47,10 @@ export default function StoreLayout({ children, auth = null }) {
                         <HeaderCart />
 
                         {auth?.user ? (
-                            <Link href={route('dashboard')} className="store-header-link">
-                                Dashboard
+                            <Link href={route('profile.index')} className="store-header-link">
+                                {auth.user.name}
                             </Link>
-                        ) : (
+                        ) : !hideAuthLinks ? (
                             <>
                                 <Link href={route('login')} className="store-header-link">
                                     Iniciar sesión
@@ -59,7 +59,7 @@ export default function StoreLayout({ children, auth = null }) {
                                     Registrarse
                                 </Link>
                             </>
-                        )}
+                        ) : null}
                     </nav>
                 </div>
             </header>
