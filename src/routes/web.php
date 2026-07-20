@@ -14,7 +14,12 @@ Route::get('/', HomeController::class)->name('home');
 
 Route::get('/product/{slug}', ProductController::class)->name('product.show');
 Route::get('/category/{slug}', CategoryController::class)->name('category.show');
-Route::get('/cart', [\App\Http\Controllers\CartController::class, 'index'])->name('cart.index');
+Route::prefix('cart')->name('cart.')->group(function () {
+    Route::get('/', [\App\Http\Controllers\CartController::class, 'index'])->name('index');
+    Route::post('/', [\App\Http\Controllers\CartController::class, 'store'])->name('store');
+    Route::patch('/{cartItem}', [\App\Http\Controllers\CartController::class, 'update'])->name('update');
+    Route::delete('/{cartItem}', [\App\Http\Controllers\CartController::class, 'destroy'])->name('destroy');
+});
 
 Route::middleware('auth')->group(function () {
     Route::prefix('profile')->name('profile.')->group(function () {

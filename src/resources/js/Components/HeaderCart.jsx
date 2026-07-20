@@ -1,6 +1,8 @@
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 
-export default function HeaderCart({ itemCount = 0 }) {
+export default function HeaderCart() {
+    const { cart_count = 0 } = usePage().props;
+
     return (
         <Link href={route('cart.index')} className="header-cart" aria-label="Carrito">
             <svg className="header-cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -8,7 +10,7 @@ export default function HeaderCart({ itemCount = 0 }) {
                 <line x1="3" y1="6" x2="21" y2="6" />
                 <path d="M16 10a4 4 0 01-4 4 4 4 0 01-4-4" />
             </svg>
-            {itemCount > 0 && <span className="header-cart-badge">{itemCount}</span>}
+            {cart_count > 0 && <span className="header-cart-badge">{cart_count}</span>}
         </Link>
     );
 }

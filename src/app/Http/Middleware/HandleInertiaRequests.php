@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Middleware;
 
 use App\Models\Category;
+use App\Services\CartService;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -40,6 +43,7 @@ class HandleInertiaRequests extends Middleware
                 ->with(['children' => fn ($q) => $q->active()])
                 ->orderBy('name')
                 ->get(),
+            'cart_count' => app(CartService::class)->getItemCount(),
         ];
     }
 }

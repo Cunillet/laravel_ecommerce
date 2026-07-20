@@ -37,6 +37,11 @@ class Price extends Model
         return $this->belongsTo(Product::class);
     }
 
+    public function getPriceAttribute(): ?string
+    {
+        return $this->amount;
+    }
+
     public function scopeActive(Builder $query): Builder
     {
         return $query->where('is_active', true);

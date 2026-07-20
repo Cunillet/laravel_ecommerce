@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { router } from '@inertiajs/react';
 import PriceDisplay from '@/Components/PriceDisplay';
 import ColorSelector from '@/Components/ColorSelector';
 import SizeSelector from '@/Components/SizeSelector';
@@ -10,9 +11,13 @@ export default function ProductInfo({ product }) {
     const [selectedSize, setSelectedSize] = useState(product.sizes?.[0] || null);
     const [showSizeGuide, setShowSizeGuide] = useState(false);
 
-    const handleAddToCart = ({ quantity }) => {
-        // TODO: implementar lógica de carrito
-        console.log('Add to cart:', { product, color: selectedColor, size: selectedSize, quantity });
+    const handleAddToCart = ({ quantity, product }) => {
+        router.post(route('cart.store'), {
+            product_id: product.id,
+            quantity,
+        }, {
+            preserveScroll: true,
+        });
     };
 
     return (
