@@ -111,10 +111,9 @@ export default function CartIndex({ items, total, itemCount }) {
                                 <span>{Number(total).toFixed(2)} €</span>
                             </div>
 
-                            <button type="button" className="btn-primary btn-lg cart-checkout-btn" disabled>
+                            <Link href={route('checkout.index')} className="btn-primary btn-lg cart-checkout-btn">
                                 Proceder al pago
-                            </button>
-                            <p className="cart-checkout-note">El pago estará disponible próximamente.</p>
+                            </Link>
                         </div>
                     </div>
                 ) : (

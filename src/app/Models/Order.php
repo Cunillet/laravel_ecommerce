@@ -19,6 +19,11 @@ class Order extends Model
         'total_amount',
         'status',
         'shipping_address_id',
+        'billing_address_id',
+        'shipping_address_data',
+        'billing_address_data',
+        'guest_email',
+        'guest_phone',
         'notes',
     ];
 
@@ -26,6 +31,8 @@ class Order extends Model
     {
         return [
             'total_amount' => 'decimal:2',
+            'shipping_address_data' => 'array',
+            'billing_address_data' => 'array',
         ];
     }
 
@@ -46,6 +53,11 @@ class Order extends Model
 
     public function shippingAddress(): BelongsTo
     {
-        return $this->belongsTo(ShippingAddress::class);
+        return $this->belongsTo(ShippingAddress::class, 'shipping_address_id');
+    }
+
+    public function billingAddress(): BelongsTo
+    {
+        return $this->belongsTo(ShippingAddress::class, 'billing_address_id');
     }
 }

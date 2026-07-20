@@ -36,4 +36,14 @@ class OrderController extends Controller
             'order' => $order,
         ]);
     }
+
+    public function publicShow(Order $order): Response
+    {
+        $order->load(['items', 'payment', 'shippingAddress', 'billingAddress']);
+
+        return Inertia::render('Orders/Show', [
+            'order' => $order,
+            'auth' => auth()->user() ? ['user' => auth()->user()] : null,
+        ]);
+    }
 }
